@@ -5,6 +5,7 @@ gem 'rails', '3.1.0'
 gem 'rack', '1.3.3'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'kaminari'
+gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -16,7 +17,6 @@ end
 group :development do
 	gem 'sqlite3'
 	gem 'rspec-rails', '2.6.1'
-	gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 	gem 'faker', '0.3.1'
 end
 
