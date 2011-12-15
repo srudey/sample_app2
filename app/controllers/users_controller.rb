@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
+	before_filter :authenticate, :except => [:show, :new, :create]
 	before_filter :correct_user, :only => [:edit, :update]
 	before_filter :admin_user, 	 :only => :destroy
   
@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 	
 	def show
 		@user = User.find(params[:id])
+		@microposts = @user.microposts.page(params[:page])
 		@title = @user.name
 	end
 	
@@ -51,11 +52,25 @@ class UsersController < ApplicationController
 		redirect_to users_path
 	end
 	
-	private
+	def following
+		@title = "Following"
+		@user = User.find(params[:id])
+		@users = @user.following.page(params[:page])
+		render 'show_follow'
+	end
 	
-		def authenticate
-			deny_access unless signed_in?
-		end
+	def followers
+		@title = "Followers"
+		@user = User.find(params[:id])
+		@users = @user.followers.page(params[:page])
+		render 'show_follow'
+	end
+	
+	private
+# commented out b/c tutorial said to remove on p. 416 since it's in the sessions helper	
+#		def authenticate
+#			deny_access unless signed_in?
+#		end
 		
 		def correct_user
 			@user = User.find(params[:id])
