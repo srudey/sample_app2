@@ -13,9 +13,12 @@ SampleApp2::Application.configure do
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
-
+	
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
+	
+	#added at hacker hours 12/14
+	config.assets.precompile += %w( *.css *.js )
 
   # Generate digests for assets URLs
   config.assets.digest = true
