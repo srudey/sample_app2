@@ -18,7 +18,7 @@ SampleApp2::Application.configure do
   config.assets.compile = false
 	
 	#added at hacker hours 12/14
-	config.assets.precompile += %w( *.css *.js )
+	config.assets.precompile += %w( blueprint/screen.css blueprint/print.css )
 
   # Generate digests for assets URLs
   config.assets.digest = true
