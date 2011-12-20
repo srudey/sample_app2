@@ -15,7 +15,7 @@ SampleApp2::Application.configure do
   config.assets.compress = true
 	
   # Don't fallback to assets pipeline if a precompiled asset is missed (changed to true 12/19)
-  config.assets.compile = true
+  config.assets.compile = false
 	
 	#added at hacker hours 12/14
 	config.assets.precompile += %w( blueprint/screen.css blueprint/print.css )
